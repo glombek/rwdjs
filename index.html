@@ -2,55 +2,60 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>rwdjs test</title>
-  <meta name="description" content="A test page for rwdjs">
-  <meta name="author" content="Joe Glombek">
-
+    <title>rwdjs test</title>
+    <meta name="description" content="A test page for rwdjs">
+    <meta name="author" content="Joe Glombek">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-  <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <a href="https://github.com/glombek/rwdjs">View on GitHub</a>
     <section>
         In this example, we use 3 rules.
-    <ol>
-        <li> One rule to show the "small" paragraph if the resolution is less than 321px
-        </li>
-        <li> One rule to show the "large" paragraph if the resolution is more than 320px
-        </li>
-        <li> And a final rule to change the text of the "large" paragraph to "Extra Large!" if the resolution is more than 1024px
-        </li>
+        <ol>
+            <li>
+                One rule to show the "small" paragraph if the resolution is less than 321px
+            </li>
+            <li>
+                One rule to show the "large" paragraph if the resolution is more than 320px
+            </li>
+            <li>
+                And a final rule to change the text of the "large" paragraph to "Extra Large!" if the resolution is more than 1024px
+            </li>
         </ol>
 
-    <figure>
-    <p class="large  large--1">Large</p>
-    <p class="small  small--1">Small</p>
+        <figure>
+            <p class="large  large--1">Large</p>
+            <p class="small  small--1">Small</p>
         </figure>
     </section>
     <section>
-    A more realistic example might be that on a smaller screen, we wish to display content inline while on a larger screens we wish to use jQuery UI tabs. (Hiding the <code>UL</code> is done with CSS!)
+        A more realistic example might be that on a smaller screen, we wish to display content inline while on a larger screens we wish to use jQuery UI tabs. (Hiding the <code>UL</code> is done with CSS!)
         <figure>
             <div class="tabMeUp">
                 <ul>
-    <li><a href="#lorem">Lorem Ipsum</a></li>
-    <li><a href="#bacon">Bacon Ipsum</a></li>
-    <li><a href="#cupcake">Cupcake Ipsum</a></li>
-  </ul>
+                    <li><a href="#lorem">Lorem Ipsum</a></li>
+                    <li><a href="#bacon">Bacon Ipsum</a></li>
+                    <li><a href="#cupcake">Cupcake Ipsum</a></li>
+                </ul>
                 <div id="lorem">
                     <h1>Lorem Ipsum</h1>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel molestie orci. Nam efficitur lorem sollicitudin odio consectetur, a pretium eros volutpat. Etiam elementum, elit quis tristique ullamcorper, erat erat suscipit eros, in laoreet justo quam non justo. Suspendisse auctor in nulla feugiat convallis. Nullam at porttitor diam. Praesent semper, massa in eleifend lobortis, purus tellus scelerisque urna, in ultrices erat augue dapibus augue. Aenean molestie vel diam sed malesuada. Aenean vestibulum lacus dui, in faucibus purus feugiat sed. Quisque felis ex, porta ut enim pulvinar, mattis convallis dui.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel molestie orci. Nam efficitur lorem sollicitudin odio consectetur, a pretium eros volutpat. Etiam elementum, elit quis tristique ullamcorper, erat erat suscipit eros, in laoreet justo quam non justo. Suspendisse auctor in nulla feugiat convallis. Nullam at porttitor diam. Praesent semper, massa in eleifend lobortis, purus tellus scelerisque urna, in ultrices erat augue dapibus augue. Aenean molestie vel diam sed malesuada. Aenean vestibulum lacus dui, in faucibus purus feugiat sed. Quisque felis ex, porta ut enim pulvinar, mattis convallis dui.
                 </div>
                 <div id="bacon">
-                                        <h1>Bacon Ipsum</h1>
+                    <h1>Bacon Ipsum</h1>
 
-                Bacon ipsum dolor amet cupim ham hock t-bone corned beef spare ribs meatball filet mignon ball tip tail doner short loin sausage short ribs alcatra frankfurter. Bacon leberkas rump turkey short ribs, shankle beef ribs pastrami pork chop picanha biltong salami. Flank pancetta drumstick ham. Tail chuck pork chop fatback.</div>
+                    Bacon ipsum dolor amet cupim ham hock t-bone corned beef spare ribs meatball filet mignon ball tip tail doner short loin sausage short ribs alcatra frankfurter. Bacon leberkas rump turkey short ribs, shankle beef ribs pastrami pork chop picanha biltong salami. Flank pancetta drumstick ham. Tail chuck pork chop fatback.
+                </div>
                 <div id="cupcake">
-                                        <h1>Cupcake Ipsum</h1>
+                    <h1>Cupcake Ipsum</h1>
 
-                Cupcake ipsum dolor. Sit amet macaroon cotton candy lemon drops. Liquorice sweet tiramisu chocolate cake. Pie tart bonbon pie. Chocolate cake gummies lollipop lollipop croissant cheesecake cake brownie. Marzipan jelly bear claw croissant sweet. Jelly-o soufflé dessert danish icing powder. Ice cream lemon drops cookie powder lollipop. Sesame snaps biscuit candy pudding. Candy dessert tiramisu topping topping lollipop. Caramels tiramisu halvah icing tootsie roll bear claw. Brownie carrot cake pastry pie jelly sesame snaps apple pie.</div>
+                    Cupcake ipsum dolor. Sit amet macaroon cotton candy lemon drops. Liquorice sweet tiramisu chocolate cake. Pie tart bonbon pie. Chocolate cake gummies lollipop lollipop croissant cheesecake cake brownie. Marzipan jelly bear claw croissant sweet. Jelly-o soufflé dessert danish icing powder. Ice cream lemon drops cookie powder lollipop. Sesame snaps biscuit candy pudding. Candy dessert tiramisu topping topping lollipop. Caramels tiramisu halvah icing tootsie roll bear claw. Brownie carrot cake pastry pie jelly sesame snaps apple pie.
+                </div>
             </div>
         </figure>
     </section>
