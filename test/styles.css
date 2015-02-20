@@ -1,0 +1,3 @@
+.tabMeUp:not(.ui-tabs) ul {
+    display:none;
+}
