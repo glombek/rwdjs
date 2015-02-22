@@ -49,15 +49,14 @@ var rwdjs = rwdjs || (function ($) {
     parent = $(window);
     
     function runRule(rule, forceRun) {
-        var usePrevWidth = forceRun ? -1 : prevWidth;
         var width = parent.width(),
-            prevIn = usePrevWidth > rule.gt && usePrevWidth < rule.lt,
-            nowIn = width > rule.gt && width < rule.lt,
+            prevIn = prevWidth >= rule.minWidth && prevWidth <= rule.maxWidth,
+            nowIn = width >= rule.minWidth && width <= rule.maxWidth,
             movedIn = nowIn && !prevIn,
             movedOut = prevIn && !nowIn;
                 
-        if(movedIn || movedOut || forceRun) {
-            rule.func(movedIn);
+        if(movedIn || movedOut || (forceRun && nowIn)) {
+            rule.func(nowIn);
         }
     }
     
@@ -87,17 +86,17 @@ var rwdjs = rwdjs || (function ($) {
         run();
     }
     
-    function addRule(gt, lt, on, off) {
+    function addRule(minWidth, maxWidth, on, off) {
         /// <signature>
         /// <summary>Add a rule with a single function (which is passed a boolean argument indicating on/off state.</summary>
-        /// <param name="gt" type="Number">The width must be greater than this value for the rule to apply. Use 'null' or '0' if there is no minimum.</param>
-        /// <param name="lt" type="Number">The width must be less than this value for the rule to apply. Use 'null' or 'Infinity' if there is no maximum.</param>
+        /// <param name="minWidth" type="Number">The width must be at least this size for the rule to apply. Use 'null' or '0' if there is no minimum.</param>
+        /// <param name="maxWidth" type="Number">The width must be this size or less for the rule to apply. Use 'null' or 'Infinity' if there is no maximum.</param>
         /// <param name="on" type="Function">The function which is run whenever the rule is triggered on or off. A boolean argument passed to this function indicates the on/off state.</param>
         /// </signature>
         /// <signature>
         /// <summary>Add a rule with one function when the rule is triggered on and a second when the rule is triggered off.</summary>
-        /// <param name="gt" type="Number">The width must be greater than this value for the rule to apply. Use 'null' or '0' if there is no minimum.</param>
-        /// <param name="lt" type="Number">The width must be less than this value for the rule to apply. Use 'null' or 'Infinity' if there is no maximum.</param>
+        /// <param name="minWidth" type="Number">The width must be at least this size for the rule to apply. Use 'null' or '0' if there is no minimum.</param>
+        /// <param name="maxWidth" type="Number">The width must be this size or less for the rule to apply. Use 'null' or 'Infinity' if there is no maximum.</param>
         /// <param name="on" type="Function">The function which is run whenever the rule is triggered on.</param>
         /// <param name="off" type="Function">The function which is run whenever the rule is triggered off.</param>
         /// </signature>
@@ -108,11 +107,11 @@ var rwdjs = rwdjs || (function ($) {
         }
         
         //Make our maths work in case of nulls
-        if (!lt) {
-            lt = Infinity;
+        if (!maxWidth) {
+            maxWidth = Infinity;
         }
-        if (!gt) {
-            gt = 0;
+        if (!minWidth) {
+            minWidth = 0;
         }
         
         var func = on;
@@ -126,7 +125,7 @@ var rwdjs = rwdjs || (function ($) {
             }
         }
         
-        var rule = { gt: gt, lt: lt, func: func };
+        var rule = { minWidth: minWidth, maxWidth: maxWidth, func: func };
         
         //add to our list of rules
         rules.push(rule);

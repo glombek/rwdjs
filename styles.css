@@ -1,6 +1,15 @@
+/* Styles used by the examples */
+
+.large,
+.small {
+    display:none; /* This is the default state, we have rules to show these */
+}
+
 .tabMeUp:not(.ui-tabs) ul {
     display:none;
 }
+
+/* Just a few extra styles */
 
 @-ms-viewport {
     width: device-width;
@@ -8,4 +17,18 @@
 
 @viewport {
     width: device-width;
+}
+
+header {
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    background-color: #eee;
+    border-bottom: 1px solid black;
+    z-index:10;
+}
+
+body {
+    padding-top: 2rem;
 }

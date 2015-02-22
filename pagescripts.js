@@ -1,21 +1,21 @@
 //Show the small div to screens 320px or narrower.
 //This should be done in CSS, but it makes for a simple example!
 //We use the single-function overload here as it makes our code simpler!
-rwdjs.addRule(null, 321, function (on) {
+rwdjs.addRule(null, 320, function (on) {
     $('.small').toggle(on);
 });
 
 //Show the large div to screens wider than 320px.
 //This should be done in CSS, but it makes for a simple example!
 //We use the single-function overload here as it makes our code simpler!
-rwdjs.addRule(320, null, function (on) {
+rwdjs.addRule(321, null, function (on) {
     $('.large').toggle(on);
 });
 
 //Change the text of the large div for screens wider than 1024px.
 //I can't think of a usecase for this, but there might be one!
 //We're using the two-function overload here for readability since both methods are so different.
-rwdjs.addRule(1024, null,
+rwdjs.addRule(1025, null,
     function () {
         $('.large').each(function () {
             //store the information we require to undo this action
@@ -30,7 +30,7 @@ rwdjs.addRule(1024, null,
         });
     });
 
-//Show a tabbed interface for screens wider than 40rem.
+//Show a tabbed interface for screens 40rem or wider.
 //A more realistic example this time!
 //We're using the two-function overload here for readability again. The first function is clearly for creating the tabs, while the second clearly destroys it.
 rwdjs.addRule(rwdjs.utils.remToPx(40), null,
@@ -42,3 +42,12 @@ rwdjs.addRule(rwdjs.utils.remToPx(40), null,
         //undo the tabs
         $('.tabMeUp').tabs('destroy');
     });
+
+
+//Let's also display the resolution for demo purposes
+function displayRes() {
+    $('.resolution--width').text($(window).width());
+    $('.resolution--height').text($(window).height());
+}
+$(window).resize(displayRes);
+displayRes();
