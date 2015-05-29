@@ -46,8 +46,8 @@ rwdjs.addRule(rwdjs.utils.remToPx(40), null,
 
 //Let's also display the resolution for demo purposes
 function displayRes() {
-    $('.resolution--width').text($(window).width());
-    $('.resolution--height').text($(window).height());
+    $('.resolution--width').text($(window).innerWidth());
+    $('.resolution--height').text($(window).innerHeight());
 }
 $(window).resize(displayRes);
 displayRes();
