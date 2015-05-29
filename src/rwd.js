@@ -49,7 +49,7 @@ var rwdjs = rwdjs || (function ($) {
     parent = $(window);
     
     function runRule(rule, forceRun) {
-        var width = parent.width(),
+        var width = parent.innerWidth(),
             prevIn = prevWidth >= rule.minWidth && prevWidth <= rule.maxWidth,
             nowIn = width >= rule.minWidth && width <= rule.maxWidth,
             movedIn = nowIn && !prevIn,
@@ -63,7 +63,7 @@ var rwdjs = rwdjs || (function ($) {
     function run() {
         /// <summary>Force the rules to be re-evaluated. This function is run initially and on the window resize event, but it's here just in case you should wish to access it.</summary>
 
-        var width = parent.width();
+        var width = parent.innerWidth();
         //just in case only the height changed
         if (width !== prevWidth) {
             
@@ -78,8 +78,6 @@ var rwdjs = rwdjs || (function ($) {
     }
     
     function init() {
-        //prevWidth = parent.width();
-        
         $(parent).resize(function () {
             run();
         });
